@@ -18,6 +18,7 @@ void main(List<String> args) {
   isimler[1] = 'Ilker';
   print(isimler);
 
+  
   List<dynamic> karisik = List.filled(growable: false, 5, 0); //dynamic list
   karisik[0] = 'keklik';
   karisik[1] = 5;

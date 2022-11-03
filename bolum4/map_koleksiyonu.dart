@@ -3,13 +3,13 @@ import 'dart:math';
 /**
  * Map yapısı da set yapısı gibi elemanları sıralı olarak tutmaz
  * Elemanlar key-value ilişkisi olarak saklanır
- * Herhangi bir veir türü kullabilir fakat key değerlerinin unique olması şarttır
+ * Herhangi bir veri türü kullabilir fakat key değerlerinin unique olması şarttır
  * Dinamik uzunluğa sahiptir 
  */
 
 void main(List<String> args) {
   Map<String, int> alanKodlari = {"ankara": 312, "bursa": 224, "istanbul": 212};
-
+  // {} görünce aklına map gelsin
   print(alanKodlari);
 
   print(alanKodlari["bursa"]);
@@ -26,7 +26,7 @@ void main(List<String> args) {
 
   Map<String, dynamic> deneme = Map();
   Map<String, dynamic> deneme2 = {};
-
+  
   deneme2['yas'] = 52;
 
   print("****************************");

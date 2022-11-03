@@ -6,6 +6,7 @@
 void main(List<String> args) {
   Set<String> isimler = Set();
   // var isimler = Set(); şeklinde de tanımlayabilirdim
+  
 
   isimler.add("Ilker");
   isimler.add("Emre");
@@ -32,8 +33,23 @@ void main(List<String> args) {
   print(sonuc2);
   print(isimler);
 
-  Set<int> numaralar =
-      Set.from([1, 2, 4, 2, 53, 5, 24, 4, 21, 1, 1, 1, 4, 33, 4]);
+  Set<int> numaralar = Set.from([
+    1,
+    2,
+    4,
+    2,
+    53,
+    5,
+    24,
+    4,
+    21,
+    1,
+    1,
+    1,
+    4,
+    33,
+    4
+  ]); // [] gordugunde aklına set gelmeli
   print(numaralar);
 
   List<int> ciftSayilar = [0, 2, 4, 6, 8, 10, 8, 6, 4, 2, 0];
@@ -42,6 +58,4 @@ void main(List<String> args) {
   numaralar.addAll(ciftSayilar);
 
   print("add all dan sonra numaralar $numaralar");
-
-  
 }

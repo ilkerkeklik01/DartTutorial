@@ -4,7 +4,7 @@ void main(List<String> args) {
   var mySet = <String>{
     "emre"
   }; //bos bırakırsam map sanar ama içini tek degerle doldurunca set oldugunu anlıyor
-
+  
   var myMap = <String, dynamic>{'yas': 34};
 
   var tekSayilar = [1, 3, 5];
