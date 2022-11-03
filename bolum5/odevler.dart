@@ -60,7 +60,7 @@ class CemberDaire {
     print("Çemberin çevresi: ${2 * pi * radius!}");
   }
 
-  void alanHesapla() {
+  void alanHesapla() { //dsad
     print("Dairenin alanı: ${pi * radius! * radius!}");
   }
 }
