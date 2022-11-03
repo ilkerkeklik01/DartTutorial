@@ -1,4 +1,4 @@
-import 'dart:mirrors';
+
 
 void main(List<String> args) {
   String isim = "emre";
@@ -6,6 +6,7 @@ void main(List<String> args) {
   bool deger = true;
 
 //Each of line above are called literal
+
 
   String ad = "ilker";
   String soyIsim = "keklik";
