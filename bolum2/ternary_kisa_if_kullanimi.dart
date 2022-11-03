@@ -11,7 +11,7 @@ void main(List<String> args) {
   String? soyad = 'keklik';
   String? mesaj;
 
-  mesaj = ad ?? soyad ; // ad null degilse adı nnull ise soyadı koy
+  mesaj = ad ?? soyad ; // ad null degilse adı null ise soyadı koy
   print('Merhaba $mesaj');
 
   

@@ -5,7 +5,9 @@ void main(List<String> args) {
   int toplam2 = sayilariTopla2(7, s2: 4, s3: 2);
   print("Toplam2: $toplam2");
 
-  print("Hacim: " + hacimHesapla(en:20,yukseklik: 2).toString());
+  print("Hacim: " + hacimHesapla(en: 20, yukseklik: 2).toString());
+
+  
 }
 
 //func with optional parameters
@@ -23,6 +25,6 @@ int sayilariTopla2(int s4, {int s1 = 0, int s2 = 0, int s3 = 0}) =>
 //bir fonksiyonda hem {} ile optional name özelliği
 //hem [] ile optional parameter özelliği kullanılamaz
 
-int hacimHesapla({int en=1,int boy=1,int yukseklik=1}) {
+int hacimHesapla({int en = 1, int boy = 1, int yukseklik = 1}) {
   return en * boy * yukseklik;
 }
