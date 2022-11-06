@@ -6,13 +6,7 @@ void main(List<String> args) {
   print('ilker\'in dersleri');
   print("ilker" + "keklik"); // + koymasam da calısıyor
 
-  /*
-  Burada ilk defa dart kodu yazıyorum
-
-  Yeni şeyler öğrendiğim için heyecanlıyım
-
-  Emre Altunbilek hocama çok teşekkür ediyorum
-  */
+  
 
 
 }
