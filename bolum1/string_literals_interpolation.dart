@@ -1,5 +1,40 @@
+void main(List<String> args) {
+//degiskenlere atanabilen ifadelere literal denir
+
+  String isim = "Emre";
+  String soyisim = "Altunbilek";
+  var kurs = 'Dart\'in kullanimi';
+  String kursTanimi = "Dart'i ve Flutter i ogrenecegiz";
+
+  print(isim + " " + soyisim);
+  print("$isim $soyisim");
+
+  print("Soyadim olan $soyisim'te bulunan karakter sayisi: " +
+      soyisim.length.toString());
+
+  print("Soyadim olan $soyisim, ${soyisim.length} harf icerir");
+
+  double en = 10;
+  double boy = 12;
+
+  print("Eni $en boyu $boy olan dikdörtgenin alanı ${en * boy}");
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void main(List<String> args) {
   String isim = "emre";
   var sayi = 56;
@@ -31,3 +66,4 @@ void main(List<String> args) {
 
 
 }
+*/

@@ -1,29 +1,33 @@
+import 'dart:math';
+
 void main(List<String> args) {
-  ucgenBul(kenar1: 2, kenar2: 3, kenar3: 1);
+  print("${func1(20)}");
+
+  print("Daire alani : ${daireAlanHesapla(4, 3)}");
+
+  ucgeninturu(k3: 7, k1: 7);
 }
 
 //Cevap1
-int func1(int s1) {
-  int res = 0;
-  for (int i = 0; i < s1; i++) {
-    if (i % 2 == 0) res += i;
+int func1(int num) {
+  int sum = 0;
+  for (int i = 0; i < num; i++) {
+    if (i % 2 == 0) sum += i;
   }
-
-  return res;
+  return sum;
 }
 
 //Cevap2
-double daireAlani(int radius, [double pi = 3.14]) {
-  return pi * radius * radius;
+double daireAlanHesapla(int radius, [double pi = 3.14]) {
+  return pi * pow(radius, 2);
 }
 
-//Ce  vap3
-void ucgenBul({int kenar1 = 1, int kenar2 = 1, int kenar3 = 1}) {
-  if (kenar1 == kenar2 && kenar1 == kenar3) {
-    print("Eşkenar Üçgen");
-  } else if (kenar1 != kenar2 && kenar1 != kenar3 && kenar2 != kenar3) {
-    print("Çeşitkenar Üçgen");
-  } else {
-    print("İkizkenar Üçgen");
-  }
+//Cevap3
+void ucgeninturu({int k1 = 1, int k2 = 1, int k3 = 1}) {
+  if (k1 == k2 && k1 == k3)
+    print("eşkenar üçgen");
+  else if (k1 != k2 && k2 != k3 && k1 != k3)
+    print("Çeşitkenar üçgen");
+  else
+    print("ikizkenar üçgen");
 }

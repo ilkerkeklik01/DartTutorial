@@ -19,6 +19,6 @@ void main(List<String> args) {
   print(sonuc);
 
   print((s2 * s3 + 4 / 2) + s2++ * s3 + (++s2));
-
+  
 
 }

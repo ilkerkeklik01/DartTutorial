@@ -2,29 +2,26 @@ import 'dart:io';
 
 void main(List<String> args) {
   //Cevap 1
-  print("ilk not: ");
-  double not1 = double.parse(stdin.readLineSync()!);
-  print("ikinci not: ");
-  double not2 = double.parse(stdin.readLineSync()!);
-
-  print("Notların ortalaması ${(not1 + not2) / 2}");
-
+  print("İki notu sıra sıra girinşz");
+  int not1 = int.parse(stdin.readLineSync()!);
+  int not2 = int.parse(stdin.readLineSync()!);
+  double ort = (not1 + not2) / 2;
+  print("ortalama: $ort");
   print("****************************************");
 
   //Cevap 2
 
-  print("Ürünün fiyatını giriniz: ");
+  print("fiyati giriniz");
   double fiyat = double.parse(stdin.readLineSync()!);
-  print("Ürünün %18 KDV'li fiyatı : ${fiyat + fiyat * 18 / 100}");
-
+  print("%18 kdv li fiyat ${fiyat * 118 / 100}");
   //Cevap 3
 
-  print("Adınızı giriniz: ");
+  print("adinizi girinşz");
   String? isim = stdin.readLineSync();
-  print('Soydadınızı giriniz: ');
+  print("soyadinizi giriniz");
   String? soyisim = stdin.readLineSync();
-  print("Yasinizi giriniz: ");
+  print("Yasinizi giriniz"); 
   int yas = int.parse(stdin.readLineSync()!);
 
-  print("Adınız: $isim\nSoyadınız: $soyisim\nYasiniz: $yas");
+  print("Adim $isim soyadim $soyisim yasim $yas");
 }

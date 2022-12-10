@@ -1,6 +1,48 @@
 void main(List<String> args) {
   int yas = 20;
   print(yas);
+  yas = 34;
+  print(yas);
+
+  num yil = 1988;
+  print(yil);
+
+  double sayi = 52;
+
+  print(sayi);
+
+  int kilo = (85.6).toInt();
+
+  print(kilo);
+
+  var num1 = 56;
+  //num1 = "merhaba";  // yapamam cunku program num1 i artik integer olarak biliyor
+
+/*
+  int num2;
+  print(num2);  // NULL Safety yuzunden yazdiramiyorum
+*/
+
+  double? num2; // ? num2 null olabilir haberin olsun diyor
+
+  print(num2);
+
+  //  var? h ;   // bu durum var icin gecerli degildir
+
+  //print(num2 + 4);   //ama sistem bunu kabul etmez
+
+  int hexadecimalSayi = 0xAABBCC;
+  print(hexadecimalSayi);
+
+  
+
+}
+
+
+/*
+void main(List<String> args) {
+  int yas = 20;
+  print(yas);
 
   yas = 44;
   print(yas);
@@ -32,3 +74,4 @@ void main(List<String> args) {
 
   
 }
+*/

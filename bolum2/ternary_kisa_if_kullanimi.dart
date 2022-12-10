@@ -3,6 +3,7 @@ void main(List<String> args) {
   var sayi2 = 7;
   int kucukSayi;
 
+  //kucukSayi = sayi1 > sayi2 ? sayi2 : sayi1;
   sayi1 < sayi2 ? kucukSayi = sayi1 : kucukSayi = sayi2;
 
   print('Küçük sayi: $kucukSayi');
@@ -11,9 +12,7 @@ void main(List<String> args) {
   String? soyad = 'keklik';
   String? mesaj;
 
-  mesaj = ad ?? soyad ; // ad null degilse adı null ise soyadı koy
+  //mesaj = ad != null ? ad : soyad;
+  mesaj = ad ?? soyad; // ad null degilse adı null ise soyadı koy
   print('Merhaba $mesaj');
-
-  
-
 }

@@ -17,10 +17,15 @@ int sayilariCikar(int s1, int s2) {
   return s1 - s2;
 }
 
-int sayilariCarp(int s1, int s2) =>
-    (s1 * s2); //single statement function shortcut
-//Fat Arrow
+int sayilariCarp(int s1, int s2) => (s1 * s2);
+//Kısa gösterim               Fat Arrow
 
-int maxOlanSayi(int s1, int s2) => max(s1, s2);
+int maxOlanSayi(int s1, int s2) {
+  if (s1 > s2)
+    return s1;
+  else
+   return s2;
+}
 
-int maxOlanSayi2(int s1, int s2) => (s1 > s2) ? s1 : s2;
+int maxOlanSayi2(int s1, int s2) => s1 > s2 ? s1 : s2;
+//bu şekilde de kullabilir

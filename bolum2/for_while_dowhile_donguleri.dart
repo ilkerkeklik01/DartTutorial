@@ -20,7 +20,7 @@ void main(List<String> args) {
   }
 
   //do while dongusu
-  int sayac2 = 5;
+  int sayac2 = 0;
   do {
     print("okunan sayac degeri $sayac2");
     sayac2++;

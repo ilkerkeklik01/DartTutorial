@@ -30,7 +30,7 @@ void main(List<String> args) {
       print('Hatalı değer girildi');
       break;
   }
-
+  
   int yas = 34;
 
   switch (yas) {
