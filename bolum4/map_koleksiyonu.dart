@@ -1,6 +1,59 @@
 import 'dart:math';
 
 /**
+ * Map yapısı da set gibi sırasız bir şekilde elemanları saklayan bir koleksiyon ögesidir.
+ * Bu yapıyı listelerden ve setten ayıran özellik ise elemanları key-value olarak saklamasıdır
+ * Herhangi bir veri türü kullanılabilir ama burada önemli olan key değerlerinin unique olması gerektiğidir.
+ * Sabit uzunlukta değildir, dinamiktir.
+ */
+
+void main(List<String> args) {
+  //Süslü parantezleri görünce aklımıza map yapısı gelmeli
+  Map<String, int> alanKodlari = {"Ankara": 312, "Bursa": 224, "Istanbul": 212};
+
+  print(alanKodlari);
+  print(alanKodlari["Bursa"]);
+
+  Map<String, dynamic> ilker = {"soyad": "Keklik", "yas": 20, "bekarMi": false};
+
+  print(ilker['yas']);
+
+  //Map yapıları böyle de oluşturulabilir
+  Map<String, dynamic> deneme = Map();
+  Map<String, dynamic> deneme2 = {};
+
+  deneme2["yas"] = 55; //atama böyle yapılır
+
+  for (String eachKey in ilker.keys) {
+    print("Key: " + eachKey + "--> " + ilker[eachKey].toString());
+  }
+
+  print("**********************");
+
+  for (dynamic eachValue in ilker.values) {
+    print(eachValue);
+  }
+
+  print("**********************");
+
+  for (var eachEntry in ilker.entries) {
+    print("Key : ${eachEntry.key} value :  ${eachEntry.value}");
+  }
+
+  if (ilker.containsKey('yas')) print("Bulunan yas degeri ${ilker["yas"]}");
+
+   
+}
+
+
+
+
+
+
+/*
+import 'dart:math';
+
+/**
  * Map yapısı da set yapısı gibi elemanları sıralı olarak tutmaz
  * Elemanlar key-value ilişkisi olarak saklanır
  * Herhangi bir veri türü kullabilir fakat key değerlerinin unique olması şarttır
@@ -49,3 +102,4 @@ void main(List<String> args) {
     print("Bulunan yas degeri: ${emre['yas']}");
   }
 }
+*/

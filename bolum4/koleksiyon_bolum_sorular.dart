@@ -1,6 +1,142 @@
 import 'dart:io';
 import 'dart:math';
 
+/**
+ * 1- Şehirleri tutan bir liste oluşturun, 4 tane il ekleyip sırasıyla yazdırın
+ * 
+ * 2- Keyleri String , değerleri dynamic olan bir map oluşturun. Bu map yapısında 
+ * bilgisayarınızın işlemci çekirdek sayısını, ram miktarını ve ssd olup olmadıgı
+ * bilgisini tutun ve ekrana yazdırın
+ * 
+ * 3-Her bir elemanında keyleri string, value leri dynamic map olan bir liste oluşturun. Bu listedeki her bir eleman il adını, ilçe sayısını, plaka kodunu tutsun. Sonrasında bu listeyi okunaklı bir şekilde yazdırın.
+ *Örnek listenin 1. elemanında bulunan il ankara,plaka kodu: 06, ilçe sayısı:10
+ * 
+ * 4-5 elemanlı iki farklı liste oluşturun. Elemanlar 0-50 ye rastgele şekilde oluşturulsun bu elemanları tek bir listeye aktarın 
+ * Oluşan son listenin elemanlarının karelerini tutan set yapısını olusturup ekrana yazdırın
+ * 
+ * 
+ * 5-Kullanıcıdan aldığınız integer pozitif sayıları bir listede tutun, kullanıcı 0 değerini girdiğinde girilen sayıların ortalamasını ekrana yazdırın
+ */
+
+void main(List<String> args) {
+  //func1();
+  //func2();
+  //func3();
+  //func4();
+  func5();
+}
+
+/**
+ * * 5-Kullanıcıdan aldığınız integer pozitif sayıları bir listede tutun, kullanıcı 0 değerini girdiğinde girilen sayıların ortalamasını ekrana yazdırın
+ */
+
+void func5() {
+  int input = 0;
+  List<int> myList = [];
+
+  while (true) {
+    print("Ortalamasi alinmasi icin sayi giriniz(ort almak icin 0 gir):");
+    input = int.parse(stdin.readLineSync()!);
+
+    if (input != 0)
+      myList.add(input);
+    else {
+      break;
+    }
+  }
+  int total = 0;
+  for (int each in myList) total += each;
+
+  print("Girilen sayilar");
+  print(myList);
+  print("Girilen sayilarin ortalamasi: ${total / myList.length}");
+}
+
+/**
+ * 4-
+ * 5 elemanlı iki farklı liste oluşturun. Elemanlar 0-50 ye rastgele şekilde oluşturulsun bu elemanları tek bir listeye aktarın 
+ * Oluşan son listenin elemanlarının karelerini tutan set yapısını olusturup ekrana yazdırın
+ */
+
+void func4() {
+  List<int> liste1 = List.filled(5, 0);
+  List<int> liste2 = List.filled(5, 0);
+
+  for (int i = 0; i < 5; i++) {
+    liste1[i] = Random().nextInt(51);
+    liste2[i] = Random().nextInt(51);
+  }
+  var list = [...liste1, ...liste2];
+
+  var set = <int>{};
+
+  for (int each in list) {
+    set.add(each * each);
+  }
+  print(set);
+}
+
+/**
+ * 3-Her bir elemanında keyleri string, value leri dynamic map olan bir liste oluşturun. Bu listedeki her bir eleman il adını, ilçe sayısını, plaka kodunu tutsun. Sonrasında bu listeyi okunaklı bir şekilde yazdırın.
+ *Örnek listenin 1. elemanında bulunan il ankara,plaka kodu: 06, ilçe sayısı:10
+ */
+void func3() {
+  List<Map> myMaps = List.empty(growable: true);
+
+  myMaps.add({"İl": "Ankara", "Plaka Kodu": "06", "İlce Sayisi": 10});
+  myMaps.add({"İl": "Adana", "Plaka Kodu": "01", "İlce Sayisi": 8});
+  myMaps.add({"İl": "Balikesir", "Plaka Kodu": "10", "İlce Sayisi": 6});
+  myMaps.add({"İl": "Bursa", "Plaka Kodu": "16", "İlce Sayisi": 7});
+  myMaps.add({"İl": "Istanbul", "Plaka Kodu": "34", "İlce Sayisi": 23});
+
+  for (int i = 0; i < myMaps.length; i++) {
+    String str = "Listenin ${i + 1}. elemaninda bulunan il: " +
+        "${myMaps[i]["İl"]}, plaka kodu: ${myMaps[i]["Plaka Kodu"]}, " +
+        "ilce sayisi: ${myMaps[i]["İlce Sayisi"]}";
+    print(str);
+  }
+}
+
+/*
+*2- Keyleri String , değerleri dynamic olan bir map oluşturun. Bu map yapısında 
+ * bilgisayarınızın işlemci çekirdek sayısını, ram miktarını ve ssd olup olmadıgı
+ * bilgisini tutun ve ekrana yazdırın */
+void func2() {
+  var myMap = <String, dynamic>{};
+  myMap["Cekirdek Sayisi"] = 16;
+  myMap["Ram Miktari"] = "16 GB";
+  myMap["SSD"] = true;
+
+  for (var eachEntry in myMap.entries) {
+    print("Key: " + eachEntry.key + " Value: " + eachEntry.value.toString());
+  }
+}
+
+/**
+ * 1- Şehirleri tutan bir liste oluşturun, 4 tane il ekleyip sırasıyla yazdırın
+ */
+void func1() {
+  List<String> sehirler = List.empty(growable: true);
+  sehirler.add("Ankara");
+  sehirler.add("İstanbul");
+  sehirler.add("Adana");
+  sehirler.add("Bursa");
+  for (String each in sehirler) {
+    print(each);
+  }
+}
+
+
+
+
+
+
+
+
+/*
+import 'dart:io';
+import 'dart:math';
+
 void main(List<String> args) {
   //cevap1();
   //cevap2();
@@ -126,3 +262,4 @@ void cevap5() {
   ort = total / listem.length;
   print("Girdiginiz sayilarin ortalaması: $ort");
 }
+*/
