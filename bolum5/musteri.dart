@@ -1,39 +1,43 @@
 class Musteri {
   int? _musteriNo;
 
-  /* Musteri(int musteriNo) {
-    this.musteriNo = musteriNo;
-  } */
-
-  //Musteri(this._musteriNo);
+/*
+  Musteri(int musteriNo) {
+    this._musteriNo = musteriNo;
+  }
+  */
 
   Musteri(int musteriNo) {
     _musteriNoKontrol(musteriNo);
   }
 
-  void set musteriNoAta(int no) {
-    if (no > 0) {
-      this._musteriNo = no;
-    } else {
-      this._musteriNo = 999;
-    }
+//getter metot
+
+  String get musteriNoSoyle {
+    return "getter Musteri no: $_musteriNo ";
   }
 
-  int get musteriNoSoyle {
-    return _musteriNo!;
-  }
+  String get musteriNoSoyle2 => "getter Musteri no: $_musteriNo ";
 
-  int get musteriNoSoyle2 => _musteriNo!;  
 
   void _musteriNoKontrol(int no) {
-    if (no > 0) {
-      this._musteriNo = no;
+    if (no > 300) {
+      _musteriNo = no;
     } else {
-      this._musteriNo = 999;
+      return;
     }
   }
 
-  void musteriNoGoster() {
-    print("Musteri no: $_musteriNo");
+//Setter metot
+  void set musteriNoAta(int no) {
+    if (no > 300) {
+      _musteriNo = no;
+    } else {
+      return;
+    }
+  }
+
+  void bilgileriYazdir() {
+    print("Musteri No: $_musteriNo");
   }
 }
