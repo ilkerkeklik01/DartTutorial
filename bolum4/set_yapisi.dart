@@ -52,6 +52,7 @@ void main(List<String> args) {
   //Seti oluştururken var olan elemanları eklemek
   Set<int> numaralar = Set.from([1, 2, 2, 3, 4, 5, 5, 5]);
   List<int> ciftSayilar = [0, 2, 4, 6, 8, 10, 8, 6, 4, 2, 0];
+  Set<int> num2 = Set.from(ciftSayilar);
 
   print(numaralar);
 
@@ -59,6 +60,7 @@ void main(List<String> args) {
   numaralar.addAll(ciftSayilar);
 //clear demeseydim diğerlerine ekleme yapacaktı
   print(numaralar);
+  print(num2);
 }
 
 /*

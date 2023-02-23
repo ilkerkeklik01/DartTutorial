@@ -1,19 +1,20 @@
+import 'dart:io';
+
 void main(List<String> args) {
   print("Anne cocugu ekmek almaya yollar");
-  print("Cocuk ekmek almak icin evden cikar");
-
   uzunSurenIslem()
-      .then((value) => print(value))
-      .catchError(
-          (hata) => print(hata)) //sistem bu işlemlerin bitmesini beklemiyor
-      .whenComplete(() => print("Operasyon bitti"));
+      .then((String value) => print(value))
+      .catchError((hata) => print(hata))
+      .whenComplete(() => print("Ekmek alma operasyonu bitti"));
 
   print("Peynir zeytin hazirlanir");
-  print("Kahvalti hazir");
+  print("Kahvalti hazir!");
 }
 
 Future<String> uzunSurenIslem() {
-  return Future<String>.delayed(Duration(seconds: 2), () {
-    return "Cocuk ekmekle eve girer"; //valuenin içinde burdaki return ifadesi var
+  print("Cocuk ekmek almak icin evden cikar");
+
+  return Future<String>.delayed(Duration(seconds: 5), () {
+    return "Cocuk ekmek alma isini bitirip  eve girer";
   });
 }

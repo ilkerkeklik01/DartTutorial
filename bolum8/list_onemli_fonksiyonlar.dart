@@ -1,66 +1,50 @@
 void main(List<String> args) {
-  Person emre = Person(3, "emre");
-  Ogrenci hasan = Ogrenci(1, "hasan", 10);
-  Person ayse = Ogrenci(8, "ayse", 8);
-  var yunus = Person(6, "yunus");
-  var ali = Ogrenci(7, "ali", 4);
+  Person emre = Person(3, "Emre");
+  Ogrenci hasan = Ogrenci(1, "Hasan", 10);
+  Person ayse = Ogrenci(8, "Ayse", 8);
+  var yunus = Person(6, "Yunus");
+  var ali = Ogrenci(7, "Ali", 4);
 
-
-
-//Constructors of List class
+  //Constructors
 
   List<Person> tumOgrenciler = [emre, hasan, ayse, yunus, ali];
 
-  var liste1 = List<Ogrenci>.filled(5, Ogrenci(0, "", 0));
+  var liste1 =
+      List<Ogrenci>.filled(5, Ogrenci(0, "", -1)); //growable false by default
 
-  /**
-   * var listeFrom = List<Ogrenci>.from(tumOgrenciler); 
-   */
+  var listFrom = List.from(tumOgrenciler); //growable true by default
+  //a list containin all elements
 
-  //buraya bir set yapisi veya bir liste yapisi gonderebiliriz
-  //dikkat edersen burada List<Ogrenci> olmasina ragmen icinde ogrenci olmayan ifadeler var.
-  //kullanimi kabul ediyor compile error vermiyor ama runtime error veriyor
+  // * * var listFrom2 = List<Ogrenci>.from(tumOgrenciler);
 
-  var listeFrom =
-      List<Ogrenci>.from(tumOgrenciler.whereType<Ogrenci>()); //yapilabilir
-  print(listeFrom); //ayse de var cunku ayse nin actual type i ogrenci
+  //tumOgrencilerin içinde "sadece" Ogrenci nesnesi yok
+  // print(listFrom2);  listFrom2 runtime error
 
-  var listeOf = List<Ogrenci>.of([
-    hasan,
-    ali
-  ]); //buraya bir set yapisi veya bir liste yapisi gonderebiliriz
-  //dikkat ederseniz burada ogrenci olmayan nesneleri kabul etmiyor.
+  var listOf = List.of(tumOgrenciler);
+  //var listOf2 = List<Ogrenci>.of(tumOgrenciler); compile error verir
+  //a list from elements (Bunu kullanmak biraz daha güvenli)
 
-  //Yani List.of kullanmak bir nevi daha guvenli diyebiliriz
+/**
+ * List<T>.of  kullanmak istiyorsak parametre olarak girdigimiz listenin elemanlarının hepsinin T cinsinden olmalıdır. Yoksa compile error verir güvenlidir
+ * List<T>.from burda ona bakmaz ama T cinsinden olmayan eleman varsa kullanırken runtime error verir 
+ */
 
-  var listeOf2 = List<Ogrenci>.of(tumOgrenciler.whereType<Ogrenci>());
-//List.of un whereType<T> fonksiyonuyla kullanimi bu sekildedir
-//bu kullanim tumOgrenciler listesinin Ogrenci turunde olan elemanlarindan yeni bir liste olusturur
+  var listeOf = List<Ogrenci>.of(tumOgrenciler.whereType<Ogrenci>());
+  //tumOgrencilerin elemanlarından Ogrenci tipinde olanları dönderen constructordır.
 
+  var listeFrom = List<Ogrenci>.of(tumOgrenciler.whereType<Ogrenci>());
 
-//Higher order function
-//generate adindaki fonskiyon baska bir fonksiyonu parametre olarak alir
-  var listGenerate =
-      List<Ogrenci>.generate(5, (index) => 
-      Ogrenci(index, "$index", index * 2)
-      
-      );
+  //length
+  var listGenerate = List<Ogrenci>.generate(
+      5, (index) => Ogrenci(index, index.toString(), index + 2));
+//girdiğin length kadar girdiğin fonksiyona göre bir liste üretir fonksiyon return tipi liste tipidir
 
-      /**
-       var listGenerate = List<Ogrenci>.generate(5, (index) {
-    return Ogrenci(index, "$index", index * 2);
-  });
-   */
-
-  print(listGenerate);
+  var listUnmodifiable = List.unmodifiable([0, 1, 2]);
+ 
+ // listUnmodifiable.add(2);   runtime error
 
 
-
-  var degistirilemez = List.unmodifiable([0, 1, 2]);
-  // degistirilemez.add(5); hata verir
-  // degistirilemez.remove(2); hata verir
-
-  
+ 
 }
 
 class Person {
@@ -71,17 +55,17 @@ class Person {
 
   @override
   String toString() {
-    return "id: $id ve isim: $isim\n";
+    return "id: $id ve isim: $isim";
   }
-  
 }
 
 class Ogrenci extends Person {
   int alinanDersSayisi = 0;
+
   Ogrenci(int id, String isim, this.alinanDersSayisi) : super(id, isim);
 
   @override
   String toString() {
-    return "id: $id, isim: $isim, ve alinan ders: $alinanDersSayisi\n";
+    return "id: $id ve isim: $isim ve alinan ders sayisi: $alinanDersSayisi";
   }
 }

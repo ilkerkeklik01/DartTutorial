@@ -1,75 +1,81 @@
-import 'list_onemli_fonksiyonlar.dart';
-
 void main(List<String> args) {
-  Person emre = Person(3, "emre");
-  Ogrenci hasan = Ogrenci(1, "hasan", 10);
-  Person ayse = Ogrenci(8, "ayse", 8);
-  var yunus = Person(6, "yunus");
-  var ali = Ogrenci(7, "ali", 4);
+  Person emre = Person(3, "Emre");
+  Ogrenci hasan = Ogrenci(1, "Hasan", 10);
+  Person ayse = Ogrenci(8, "Ayse", 8);
+  var yunus = Person(6, "Yunus");
+  var ali = Ogrenci(7, "Ali", 4);
 
   List<Person> tumOgrenciler = [emre, hasan, ayse, yunus, ali];
+
   tumOgrenciler.add(yunus);
-  tumOgrenciler.addAll(
-      {ayse, ali}); //Iterable bir listenin  hepsini ekleme  mesela set yapisi
+  tumOgrenciler
+      .addAll([ayse, ali]); //Iterable yani  Set yapısı bile gönderebiliyırum
 
-  print(tumOgrenciler);
-  //any yazdiginiz testi gecen eleman var mi yok mu
-  //higher order bir fonksiyondur
-  bool sonuc = tumOgrenciler.any((Person element) => element.id == 2);
-  print(sonuc);
-  //bu super bir seymis
+//   .any
+//tumOgrencilerde yazdıgım testi geçebilen bir eleman var mı
+  bool sonuc = tumOgrenciler.any((Person element) => element.id == 1);
+  print("sonuc: $sonuc");
 
-  Map<int, Person> myMap = tumOgrenciler
-      .asMap(); //var olan listeyi map (unmodifiable) yapisina donusturur
-  //key degerleri integer atanir ve 0 dan artarak gider value degerleri listenin icerigidir.
-  print(myMap[2]?.isim);
+//  .asMap
 
-/**
- *tumOgrenciler.clear();  //tum listeyi sifirlar
-  print(tumOgrenciler); 
- */
+  Map<int, Person> yeniMap = tumOgrenciler.asMap();
 
-  print("emre adi altinda biri var mi: ${tumOgrenciler.contains(emre)}");
+  print(yeniMap[0]!.isim);
 
-  bool sonucEvery = tumOgrenciler.every((element) => element.isim.length > 0);
-  //butun elemanlarin isim degerinin uzunlugu mutlaka 0 karakterden buyum mu
-  //any de sadece bir tanesi dogruysa true donduruyordu burda hepsinin dogru olmasi lazim
-  print(sonuc);
+  print(tumOgrenciler.contains(Person(3, "Emre")));
+  //var olmasına ragmen false diyor nedenini biliyon
 
-  var bulunan = tumOgrenciler.firstWhere((element) => element.id > 5);
-  //verdigin bool donduren fonksiyona gore bulunan ilk true ifadesindeki elemani donderir
-  //ayse vermesini bekliyorum
-  print(bulunan); //ayse
+  //     .every
+  //condition functioni her eleman için kontrol eder. True cıkması için hepsi için fonksiyon true olmalı
+  bool sonuc2 = tumOgrenciler.every((Person element) => element.id >= 4);
+  print("sonuc2 : $sonuc2");
 
-  tumOgrenciler.insert(1,
-      emre); //girilen indexe verilen elemani ekler ve onun yerindeki eleman dahil her seyi saga kaydirir.
-  print(tumOgrenciler);
-  //insertAll da o indexe girilen iterable i ekler digerlerini kaydirir gibi dusun
+  //   .firstWhere
+  //condition functionunu saglayan ilk elemanı donderir
+  var bulunan = tumOgrenciler.firstWhere((element) => element.id >= 4);
+  print(bulunan);
 
-//butun listeyi gezer ve her elemani verilen fonskiyona gore donusturur. ardindan bir iterable in icine atar ve bu iterable i dondurur.
-  var dondurulenIterable = tumOgrenciler.map((e) => "${e.isim}");
-//hepsini stringe donusturdum
-  print(dondurulenIterable);
-  //Iterable pek isimize yaramayacagi icin bunu baska bir yapiya donusturmeliyiz
-  var yeniList = dondurulenIterable.toList();
+  //  ****    .map
+  //listemin her bir elemanını başka bir yapıya dönüştürerek Iterable oluşturur. Bu ornekte Person'ı String'e
+  var yeniIterable = tumOgrenciler.map((Person e) => "${e.isim}");
+  print(yeniIterable);
+  //Iterable kullanışlı değil () içerisinde yazdırıyor
+  //bunu listeye dönüştürmeliyim
+  yeniIterable = yeniIterable.toList();
+  //tek satırda yap
+
+  var yeniList = tumOgrenciler.map((Person e) => "${e.isim}").toList();
   print(yeniList);
+  // [] içersinde yazdırıyor.
 
-  var yeniSet = dondurulenIterable.toSet();
-  print(yeniSet);
+//tekrar eden elemanları görmek istemiyorsam .toSet() diyerek Set yapısına da dönüştürebilirim.
 
-  /*
-  tumOgrenciler.sort((ogr1, ogr2) {
-    if (ogr1.id < ogr2.id)
-      return -1;
-    else if (ogr1.id == ogr2.id)
-      return 0;
-    else
-      return 1;
-  });
-*/
-  tumOgrenciler.sort((ogr1, ogr2) => ogr1.id.compareTo(ogr2.id));
-  print(tumOgrenciler.map((e) => "${e.isim}"));
+//   .sort
+  //sorting condition function
+  tumOgrenciler.sort((Person a, Person b) => a.id >= b.id ? 1 : 0);
+  print(tumOgrenciler);
+// ***Ana kaynak değişir
+}
 
-  //icerdeki fonskiyona(COMPARATOR) gore siralama yapar ogr1.id ogr2.id den kucukse compare to negatif donderir ve ogr1 ogr2 den once gelir.
-  //geriye bir sey dondermez, ana kaynakta degisim yapar
+class Person {
+  int id = 0;
+  String isim = "";
+
+  Person(this.id, this.isim);
+
+  @override
+  String toString() {
+    return "id: $id ve isim: $isim\n";
+  }
+}
+
+class Ogrenci extends Person {
+  int alinanDersSayisi = 0;
+
+  Ogrenci(int id, String isim, this.alinanDersSayisi) : super(id, isim);
+
+  @override
+  String toString() {
+    return "id: $id ve isim: $isim ve alinan ders sayisi: $alinanDersSayisi\n";
+  }
 }

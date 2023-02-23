@@ -1,32 +1,20 @@
 class MyStack {
   List _listem = [];
 
-  push(yeniEleman) {
-    _listem.add(yeniEleman);
+  void push(element) {
+    _listem.add(element);
   }
 
-  pop() {
+  dynamic pop() {
     return _listem.removeLast();
-  }
-}
-
-class GenericStack<T> {
-  List<T> _list = <T>[];
-
-  void push(T t) {
-    _list.add(t);
-  }
-
-  T pop() {
-    return _list.removeLast();
   }
 }
 
 class IntMyStack {
   List<int> _listem = [];
 
-  push(int yeniEleman) {
-    _listem.add(yeniEleman);
+  void push(int element) {
+    _listem.add(element);
   }
 
   int pop() {
@@ -37,11 +25,25 @@ class IntMyStack {
 class StringMyStack {
   List<String> _listem = [];
 
-  push(String yeniEleman) {
-    _listem.add(yeniEleman);
+  void push(String element) {
+    _listem.add(element);
   }
 
   String pop() {
     return _listem.removeLast();
   }
+}
+
+class GenericStack<T> {
+  List<T> _list = List.empty(growable: true);
+  
+void push(T element) {
+    _list.add(element);
+  }
+
+  T pop() {
+    return _list.removeLast();
+  }
+
+
 }

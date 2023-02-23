@@ -13,12 +13,6 @@
  */
 
 void main(List<String> args) {
-  List liste = [];
-  liste.add("emre");
-  liste.add(2);
-  liste.add(false);
-
-
   /**
    * List<E> ==> Element
    * Map<K,V>  ==> Key  Value
@@ -27,4 +21,15 @@ void main(List<String> args) {
    * Ogrenci<T extends Insan> gelecek veri turu mutlaka insan sinifinin alt sinifi olmali
    *  
    */
+
+  List liste = []; // liste <dynamic> olarak tanimlandi
+  liste.add("emre");
+  liste.add(2);
+  liste.add(false);
+
+  //yazdir(liste);  // 1. indexte integer oldugundan dolayi length fonksiyonu hatali calisiyor
+}
+
+void yazdir(List liste) {
+  print(liste[1].length);
 }

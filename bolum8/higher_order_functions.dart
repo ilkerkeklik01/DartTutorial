@@ -1,30 +1,35 @@
 /**
- * Higher order functions : bir fonksiyonu parametre olarak alan veya geriye fonksiyon donduren fonksiyonlardir.
- * Tabi ikisi ayni anda da yapilabilir.
+ * 
+ * Higher order functions: bir fonksiyonu paramtre olarak alan veya geriye fonksiyon döndüren fonksiyonlardır.
+ * İkisi aynı anda yapılabilir
  */
 
 void main(List<String> args) {
   List<int> liste = [1, 2, 3];
 
-  // liste.forEach((element) {
-  //   print("Element: $element");
-  // });
+/*
+  liste.forEach((element) {
+    print("Elementin iki kati : ${element * 2}");
+  });
+*/
 
-  liste.forEach(callback);
-  //forEach bir fonksiyon ve baska bir fonksiyonu parametre olarak aldi
-
-  kendiForEachYapim(liste, (int deger,int index) {
-    print("kendi for each degerim: $deger, index: $index");
+/*
+  liste.forEach(callback); 
+  */
+  //for each fonksiyonu parametre olarak void döndüren parametre olarak integer bir sayı alan fonksion alır.
+  //parameters
+  kendiForEachYapim(liste, (int eachElement, int index) {
+    print(
+        "KendiForEachYapim elementin iki kati : ${eachElement * 2}, index: $index");
   });
 }
-
-void kendiForEachYapim(List<int> list, Function callback) {
-  int a = 0;
-  for (int i in list) {
-    callback(i, a++);
+ 
+void kendiForEachYapim(List<int> list, void Function(int, int) func) {
+  for (int i = 0; i < list.length; i++) {
+    func(list[i], i);
   }
 }
 
 void callback(int element) {
-  print("Element: $element");
+  print("Callback elementin iki kati: ${element * 2}");
 }

@@ -1,5 +1,5 @@
 /**
- * Closure ozel bir fonksiyondur, closure ile bir ust kapsamdaki degiskenlerin degerlerini degistirebiliriz.
+ * Closure özel bir fonksiyondur, closure ile bir üst kapsamdaki değişkenlerin değerlerini değiştirebiliriz. 
  */
 
 //lexical variable scope
@@ -12,17 +12,22 @@ void main(List<String> args) {
     void b() {
       var bDegiskeni = 3;
       print(aDegiskeni);
-      print(bDegiskeni);
+      print(mainDegiskeni);
     }
   }
 
-  var dondurulenFonksiyon = topla(3); //3 eleman degiskenine atanir
+  //topla fonksiyonu bir fonksiyon dönderip bunu i değişkenine atıyor ve i bir fonkrsiyon
+  var i = topla(4);
+  print(i);
 
-  var sonuc = dondurulenFonksiyon(5); //5 deger degiskenine atanir
+  //k değişkeni i fonskyionunun return ettiği integer değeridir
+  var k = i(5);
+  print(k);
 
-  print(sonuc);
+
 }
 
+//Bu fonksiyon başka bir fonksiyonu return etti
 Function topla(int eleman) {
   return (int deger) => deger * eleman;
 }

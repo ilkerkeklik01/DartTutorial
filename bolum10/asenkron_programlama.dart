@@ -2,31 +2,20 @@ import 'dart:io';
 
 void main(List<String> args) {
   print("Anne cocugu ekmek almaya yollar");
-
-  Future<String> sonuc = uzunSurenIslem();
-
-  sonuc.then((String value) => print(value))
-  .catchError((hata) {
-    print(hata);
-  }).whenComplete(() => print("Ekmek alma operasyonnu bitti"));
-
-  print("Anne peynir zeytin hazirlar");
+  uzunSurenIslem();
+  print("Peynir zeytin hazirlanir");
   print("Kahvalti hazir!");
 }
 
-//2 saniye sonra olası bir string
-Future<String> uzunSurenIslem() {
+void uzunSurenIslem() {
   print("Cocuk ekmek almak icin evden cikar");
-  //sleep(Duration(seconds: 5));
-  //dart:io nun içinde sleep diye bir fonksiyon var
-  //Duration sinifindan bir parametre bekliyor ve bu sinif const constructorinda optional named parametrler alıyor saniye gün ay milisaniye gibi. Sonra bunu kendi içinde milisaniyeye dönüştürüp kendi içindeki _milliseconds degiskenine atıyor ve program o sure boyunca bekliyor
-  //Ama bu senkron calısıyor biz bunu istemiyoruz
-
-  Future<String> res = Future.delayed(Duration(seconds: 2), () {
-     return "Cocuk ekmekle eve girer";
-   // throw Exception("Bakkalda ekmek kalmamis");
+  //sleep(Duration(seconds: 5)); Senkron programlama ornegi
+  
+  Future.delayed(Duration(seconds: 5), () {
+    print("Cocuk ekmek alma isini bitirip  eve girer");
   });
-
-  return res;
-  //print("Cocuk ekmegi getirir");
+  //Future.delayed yapisinin fonksiyonu 5 saniye sonra calisacak ama bu surede diger islemler devam edecek
+  //Asenkron programlama ornegi
+  print("deneme");
+  // print("Cocuk ekmekle eve girer");
 }
